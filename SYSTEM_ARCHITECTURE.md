@@ -179,3 +179,4 @@ To ensure high UI responsiveness (60 FPS rendering) without blocking on sensor a
 3. **BLE Security:** All GATT operations carrying health data, watch face packages, or system settings require BLE Security Mode 1 Level 4 (LE Secure Connections, Authenticated Pairing with Numeric Comparison and 128-bit AES-CCM encryption).
 4. **App Sandbox:** Third-party watch faces and widgets are declarative JSON data structures parsed by the native engine—**no arbitrary machine code or bytecode is executed on device**.
 5. **Data Protection:** Health and biometric records stored in LittleFS are encrypted using AES-128-XTS with keys stored in the nRF5340 secure CryptoCell key vault.
+

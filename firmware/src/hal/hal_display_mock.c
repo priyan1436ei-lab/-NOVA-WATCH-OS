@@ -101,3 +101,4 @@ bool hal_display_is_ready(void) {
     if (!s_active_driver) return false;
     return s_active_driver->is_ready();
 }
+

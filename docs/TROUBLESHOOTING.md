@@ -27,3 +27,4 @@
 * **Symptom:** Swiping left triggers a swipe right or touch registers on opposite edge.
 * **Root Cause:** Touch controller orientation mismatch with display rotation.
 * **Resolution:** Ensure `CST816S` coordinates are transformed in `hal_touch.c` based on display orientation flags (`NOVA_DISPLAY_IS_ROUND`).
+

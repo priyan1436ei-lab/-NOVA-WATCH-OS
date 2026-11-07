@@ -80,3 +80,4 @@ The `power_manager` operates a 5-state power machine:
 | **Battery Saver** | 64 MHz | Button Wake Only | Interval (5m) | Low-power (25 Hz) | Disabled |
 | **Ultra Saver** | 32 MHz | Minimal Mono | OFF | Step Count Only | Disabled |
 | **Deep Sleep** | 32 kHz | OFF | OFF | Suspended | Disabled |
+

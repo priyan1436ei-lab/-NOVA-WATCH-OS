@@ -59,3 +59,4 @@ void run_boot_manager_tests(void) {
     RUN_TEST(test_crash_loop_safe_mode_trigger);
     RUN_TEST(test_watchdog_feeding);
 }
+

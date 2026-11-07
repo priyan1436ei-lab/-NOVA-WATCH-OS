@@ -52,3 +52,4 @@ void run_diagnostics_tests(void) {
     RUN_TEST(test_diagnostics_bist_execution);
     RUN_TEST(test_diagnostics_telemetry);
 }
+

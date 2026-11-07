@@ -46,3 +46,4 @@ NOVA WATCH OS exposes a unified suite of custom GATT services designed for high 
 3. **Payload Length:** Explicit length of data payload.
 4. **Payload:** Application data block.
 5. **CRC16 (CCITT):** Hardware or software computed cyclic redundancy checksum.
+

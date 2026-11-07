@@ -34,3 +34,4 @@ const hal_audio_driver_t* hal_audio_get_mock_driver(void);
 #endif
 
 #endif /* HAL_AUDIO_H */
+

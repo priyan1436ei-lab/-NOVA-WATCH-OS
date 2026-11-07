@@ -24,3 +24,4 @@ typedef void (*hal_callback_t)(void *user_data);
 #endif
 
 #endif /* HAL_COMMON_H */
+

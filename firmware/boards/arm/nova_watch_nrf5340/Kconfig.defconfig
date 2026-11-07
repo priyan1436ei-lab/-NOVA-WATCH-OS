@@ -19,3 +19,4 @@ config BT_CTLR
     default y
 
 endif # BOARD_NOVA_WATCH_NRF5340_CPUNET
+

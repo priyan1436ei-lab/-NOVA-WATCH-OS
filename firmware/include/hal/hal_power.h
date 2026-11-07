@@ -59,3 +59,4 @@ void hal_power_mock_set_battery(uint16_t voltage_mv, uint8_t soc_pct, hal_charge
 #endif
 
 #endif /* HAL_POWER_H */
+

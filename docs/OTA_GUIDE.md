@@ -44,3 +44,4 @@ NOVA WATCH OS utilizes an A/B dual-slot memory layout to prevent "bricking" duri
 1. **Never erase Slot 0 before validation:** Slot 0 remains 100% untouched until Slot 1 is completely received and its cryptographic signature verified.
 2. **Battery Threshold Enforcement:** If battery level is below 30% and the watch is not connected to a charger, OTA updates are rejected.
 3. **Rollback Protection:** If the new image fails its Built-In Self-Tests or fails to confirm stability within 60 seconds of booting, MCUboot automatically rolls back to Slot 0.
+

@@ -10,3 +10,4 @@ target_include_directories(nova_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ../inc
 target_link_libraries(nova_tests PRIVATE nova_core)
 
 add_test(NAME nova_unit_tests COMMAND nova_tests)
+

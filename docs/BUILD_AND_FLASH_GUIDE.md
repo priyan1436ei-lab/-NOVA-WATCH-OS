@@ -70,3 +70,4 @@ nrfjprog --program build/zephyr/zephyr.hex --chiperase --reset --verify
 west build -b nova_watch_nrf5340_cpunet firmware/boards/arm/nova_watch_nrf5340 --pristine
 nrfjprog --program build/zephyr/zephyr.hex --coprocessor CP_NETWORK --sectorerase --reset --verify
 ```
+

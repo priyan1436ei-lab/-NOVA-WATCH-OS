@@ -239,3 +239,4 @@ The physical hardware dependencies identified for production verification are:
 4. **Hardware Power Profiler (Nordic PPK2)**: Precision power measurement tool for microampere standby and milliampere active validation.
 
 Until physical custom Rev A PCBs are fabricated and delivered, **all hardware interactions must strictly route through the Hardware Abstraction Layer (HAL) interfaces with verified Host and Zephyr simulation mocks**.
+

@@ -63,3 +63,4 @@ void hal_touch_mock_inject(const hal_touch_data_t *data);
 #endif
 
 #endif /* HAL_TOUCH_H */
+

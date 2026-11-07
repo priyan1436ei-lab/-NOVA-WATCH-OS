@@ -91,3 +91,4 @@ void hal_zephyr_register_all(void) {
 }
 
 #endif /* __ZEPHYR__ */
+

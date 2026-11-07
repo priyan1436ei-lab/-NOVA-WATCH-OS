@@ -43,3 +43,4 @@ const hal_ble_driver_t* hal_ble_get_mock_driver(void);
 #endif
 
 #endif /* HAL_BLE_H */
+

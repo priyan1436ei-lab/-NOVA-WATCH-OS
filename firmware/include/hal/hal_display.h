@@ -41,3 +41,4 @@ const hal_display_driver_t* hal_display_get_mock_driver(void);
 #endif
 
 #endif /* HAL_DISPLAY_H */
+

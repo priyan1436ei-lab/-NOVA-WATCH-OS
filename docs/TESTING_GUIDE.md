@@ -40,3 +40,4 @@
 * **Tooling:** Zephyr `twister` test harness
 * **Target:** `nrf5340dk/nrf5340/cpuapp` and `native_sim`
 * **Command:** `west twister -T tests -p native_sim`
+

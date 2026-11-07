@@ -144,3 +144,4 @@ void run_hal_tests(void) {
     RUN_TEST(test_hal_haptic);
     RUN_TEST(test_hal_ble);
 }
+

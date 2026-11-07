@@ -49,3 +49,4 @@ const hal_storage_driver_t* hal_storage_get_mock_driver(void);
 #endif
 
 #endif /* HAL_STORAGE_H */
+

@@ -41,3 +41,4 @@ hal_haptic_effect_t hal_haptic_mock_get_last_effect(void);
 #endif
 
 #endif /* HAL_HAPTIC_H */
+

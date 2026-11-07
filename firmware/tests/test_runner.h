@@ -54,3 +54,4 @@ void run_power_manager_tests(void);
 #endif
 
 #endif /* TEST_RUNNER_H */
+

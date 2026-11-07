@@ -16,3 +16,4 @@
 | **PHASE 12**| **Custom PCB & Enclosure Integration** | Schematic review, 4-layer circular PCB layout, waterproof case assembly. | *Planned* |
 | **PHASE 13**| **Hardware Testing & Power Profiling**| Real current measurements via Nordic PPK2, battery life validation. | *Planned* |
 | **PHASE 14**| **Production Readiness & Release** | Certification (FCC/CE/Bluetooth SIG), factory flash scripts, gold master images. | *Planned* |
+

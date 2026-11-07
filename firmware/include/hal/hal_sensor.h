@@ -57,3 +57,4 @@ void hal_sensor_mock_set_ppg(const hal_ppg_data_t *data);
 #endif
 
 #endif /* HAL_SENSOR_H */
+

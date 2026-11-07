@@ -89,3 +89,4 @@ void run_power_manager_tests(void) {
     RUN_TEST(test_power_voltage_to_soc_curve);
     RUN_TEST(test_power_battery_alerts);
 }
+

@@ -88,3 +88,4 @@ static inline const char* nova_status_to_string(nova_status_t status) {
 #endif
 
 #endif /* NOVA_ERRORS_H */
+

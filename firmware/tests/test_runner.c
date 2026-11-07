@@ -33,3 +33,4 @@ int main(void) {
 
     return (g_test_results.tests_failed == 0) ? 0 : 1;
 }
+
