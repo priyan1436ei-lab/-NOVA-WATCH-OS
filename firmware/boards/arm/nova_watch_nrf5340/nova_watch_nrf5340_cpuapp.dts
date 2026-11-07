@@ -1,0 +1,165 @@
+/dts-v1/;
+#include <nordic/nrf5340_cpuapp_qkaa.dtsi>
+#include "nova_watch_nrf5340_cpuapp-pinctrl.dtsi"
+
+/ {
+    model = "NOVA Watch nRF5340 Application Core";
+    compatible = "nordic,nova-watch-nrf5340-cpuapp";
+
+    chosen {
+        zephyr,sram = &sram0_image;
+        zephyr,flash = &flash0;
+        zephyr,code-partition = &slot0_partition;
+        zephyr,console = &uart0;
+        zephyr,shell-uart = &uart0;
+        zephyr,display = &display0;
+        zephyr,touch = &touch0;
+        nordic,pm-ext-flash = &w25q128jv;
+    };
+
+    aliases {
+        led0 = &led0;
+        sw0 = &button0;
+        sw1 = &button1;
+        watchdog0 = &wdt0;
+        cst816s = &touch0;
+        bmi270 = &imu0;
+        npm1300 = &pmic0;
+        drv2605 = &haptic0;
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        led0: led_0 {
+            gpios = <&gpio1 10 GPIO_ACTIVE_HIGH>;
+            label = "System Status LED";
+        };
+    };
+
+    buttons {
+        compatible = "gpio-keys";
+        button0: button_0 {
+            gpios = <&gpio1 8 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Crown Navigation Button";
+        };
+        button1: button_1 {
+            gpios = <&gpio1 9 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+            label = "Shortcut / Back Button";
+        };
+    };
+};
+
+&i2c1 {
+    compatible = "nordic,nrf-twim";
+    status = "okay";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
+    clock-frequency = <I2C_BITRATE_FAST>;
+
+    touch0: cst816s@15 {
+        compatible = "hynitron,cst816s";
+        reg = <0x15>;
+        irq-gpios = <&gpio0 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        reset-gpios = <&gpio0 7 GPIO_ACTIVE_LOW>;
+        label = "CST816S_TOUCH";
+    };
+
+    imu0: bmi270@68 {
+        compatible = "bosch,bmi270";
+        reg = <0x68>;
+        int1-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+        int2-gpios = <&gpio0 9 GPIO_ACTIVE_HIGH>;
+        label = "BMI270_IMU";
+    };
+
+    pmic0: npm1300@6b {
+        compatible = "nordic,npm1300";
+        reg = <0x6b>;
+        int-gpios = <&gpio0 10 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        label = "NPM1300_PMIC";
+    };
+
+    haptic0: drv2605l@5a {
+        compatible = "ti,drv2605l";
+        reg = <0x5a>;
+        enable-gpios = <&gpio0 11 GPIO_ACTIVE_HIGH>;
+        label = "DRV2605L_HAPTIC";
+    };
+};
+
+&spi2 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+    pinctrl-0 = <&spi2_default>;
+    pinctrl-names = "default";
+    cs-gpios = <&gpio0 20 GPIO_ACTIVE_LOW>;
+
+    display0: co5300@0 {
+        compatible = "visionox,co5300";
+        reg = <0>;
+        spi-max-frequency = <50000000>;
+        reset-gpios = <&gpio0 24 GPIO_ACTIVE_LOW>;
+        dc-gpios = <&gpio0 23 GPIO_ACTIVE_HIGH>;
+        te-gpios = <&gpio0 25 GPIO_ACTIVE_HIGH>;
+        width = <360>;
+        height = <360>;
+        label = "CO5300_AMOLED";
+    };
+};
+
+&qspi {
+    status = "okay";
+    pinctrl-0 = <&qspi_default>;
+    pinctrl-names = "default";
+
+    w25q128jv: w25q128jv@0 {
+        compatible = "nordic,qspi-nor";
+        reg = <0>;
+        writeoc = "pp4io";
+        readoc = "read4io";
+        sck-frequency = <32000000>;
+        jedec-id = [ef 40 18];
+        size = <0x1000000>; // 16 MBytes
+        label = "W25Q128JV_FLASH";
+
+        partitions {
+            compatible = "fixed-partitions";
+            #address-cells = <1>;
+            #size-cells = <1>;
+
+            lfs_partition: partition@200000 {
+                label = "littlefs_storage";
+                reg = <0x00200000 0x00E00000>; // 14 MB LittleFS
+            };
+        };
+    };
+};
+
+&flash0 {
+    partitions {
+        compatible = "fixed-partitions";
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        boot_partition: partition@0 {
+            label = "mcuboot";
+            reg = <0x00000000 0x00010000>; // 64 KB
+        };
+
+        slot0_partition: partition@10000 {
+            label = "image-0";
+            reg = <0x00010000 0x0006C000>; // 432 KB
+        };
+
+        slot1_partition: partition@7C000 {
+            label = "image-1";
+            reg = <0x0007C000 0x00080000>; // 512 KB
+        };
+
+        storage_partition: partition@FC000 {
+            label = "storage";
+            reg = <0x000FC000 0x00004000>; // 16 KB NVS
+        };
+    };
+};

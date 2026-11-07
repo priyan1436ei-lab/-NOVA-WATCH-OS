@@ -1,0 +1,21 @@
+# NOVA Watch nRF5340 Default Config
+
+if BOARD_NOVA_WATCH_NRF5340_CPUAPP
+
+config BOARD
+    default "nova_watch_nrf5340_cpuapp"
+
+config BT_CTLR
+    default n
+
+endif # BOARD_NOVA_WATCH_NRF5340_CPUAPP
+
+if BOARD_NOVA_WATCH_NRF5340_CPUNET
+
+config BOARD
+    default "nova_watch_nrf5340_cpunet"
+
+config BT_CTLR
+    default y
+
+endif # BOARD_NOVA_WATCH_NRF5340_CPUNET

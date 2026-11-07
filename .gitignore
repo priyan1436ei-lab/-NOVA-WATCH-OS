@@ -1,0 +1,41 @@
+# Build outputs
+build/
+build_*/
+bin/
+out/
+dist/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# Zephyr / West
+.west/
+zephyr/
+modules/
+tools/
+bootloader/
+
+# Node.js
+node_modules/
+.next/
+*.tsbuildinfo
+
+# Flutter / Dart
+.dart_tool/
+.packages
+companion/build/
+companion/.flutter-plugins
+companion/.flutter-plugins-dependencies
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*~
+Thumbs.db
+.DS_Store

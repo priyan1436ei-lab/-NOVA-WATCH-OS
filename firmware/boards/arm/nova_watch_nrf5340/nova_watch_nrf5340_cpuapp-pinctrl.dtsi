@@ -1,0 +1,36 @@
+/* Pin Control Definitions for NOVA Watch nRF5340 */
+
+&pinctrl {
+    i2c1_default: i2c1_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 5)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 4)>;
+        };
+    };
+
+    i2c1_sleep: i2c1_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 5)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 4)>;
+            low-power-enable;
+        };
+    };
+
+    spi2_default: spi2_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 21)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 22)>;
+        };
+    };
+
+    qspi_default: qspi_default {
+        group1 {
+            psels = <NRF_PSEL(QSPI_SCK, 0, 13)>,
+                    <NRF_PSEL(QSPI_CSN, 0, 14)>,
+                    <NRF_PSEL(QSPI_IO0, 0, 15)>,
+                    <NRF_PSEL(QSPI_IO1, 0, 16)>,
+                    <NRF_PSEL(QSPI_IO2, 0, 17)>,
+                    <NRF_PSEL(QSPI_IO3, 0, 18)>;
+        };
+    };
+};

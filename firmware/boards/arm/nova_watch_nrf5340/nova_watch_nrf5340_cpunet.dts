@@ -1,0 +1,27 @@
+/dts-v1/;
+#include <nordic/nrf5340_cpunet_qkaa.dtsi>
+
+/ {
+    model = "NOVA Watch nRF5340 Network Core";
+    compatible = "nordic,nova-watch-nrf5340-cpunet";
+
+    chosen {
+        zephyr,sram = &sram1;
+        zephyr,flash = &flash1;
+        zephyr,code-partition = &slot0_partition;
+        zephyr,bt-hci-ipc = &ipc0;
+    };
+};
+
+&flash1 {
+    partitions {
+        compatible = "fixed-partitions";
+        #address-cells = <1>;
+        #size-cells = <1>;
+
+        slot0_partition: partition@0 {
+            label = "image-0";
+            reg = <0x00000000 0x00040000>; // 256 KB
+        };
+    };
+};

@@ -1,0 +1,12 @@
+# NOVA WATCH OS Board Configuration
+
+config BOARD_NOVA_WATCH_NRF5340_CPUAPP
+    bool "NOVA Watch nRF5340 Application Core"
+    depends on SOC_NRF5340_CPUAPP_QKAA
+    select SOC_DCDC_NRF53X_APP
+    select SOC_DCDC_NRF53X_NET
+    select SOC_DCDC_NRF53X_HV
+
+config BOARD_NOVA_WATCH_NRF5340_CPUNET
+    bool "NOVA Watch nRF5340 Network Core"
+    depends on SOC_NRF5340_CPUNET_QKAA
